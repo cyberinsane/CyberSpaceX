@@ -50,6 +50,8 @@ android {
 dependencies {
     implementation(project(":core"))
     implementation(project(":feature-company"))
+    implementation(project(":feature-launches"))
+    implementation(project(":feature-rockets"))
 
     // Start-up
     implementation(Libs.AndroidX.StartUp.startup)
