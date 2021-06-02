@@ -1,6 +1,8 @@
 plugins {
     id("com.android.application")
     id("kotlin-android")
+    kotlin("kapt")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -47,16 +49,18 @@ android {
 
 dependencies {
     implementation(project(":core"))
+    implementation(project(":feature-company"))
 
-    implementation(Libs.AndroidX.appcompat)
-    implementation(Libs.Material.material)
-
-    // Compose
-    implementation(Libs.AndroidX.Compose.ui)
-    implementation(Libs.AndroidX.Compose.tooling)
-    implementation(Libs.AndroidX.Compose.material)
-    implementation(Libs.AndroidX.Activity.activityCompose)
+    // Start-up
+    implementation(Libs.AndroidX.StartUp.startup)
 
     // Compose Test
     androidTestImplementation(Libs.AndroidX.Compose.uiTest)
+
+    // Hilt
+    implementation(Libs.Hilt.android)
+    implementation(Libs.Hilt.navigationCompose)
+    kapt(Libs.Hilt.compiler)
+
+    kapt(Libs.Moshi.moshi)
 }
